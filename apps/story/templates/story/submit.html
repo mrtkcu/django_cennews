@@ -1,0 +1,30 @@
+{% extends 'core/base.html' %}
+<!-- This might be wrong reverse the slash-->
+
+{% block content %}
+<!-- ALL THE CONTENT THAT IS WRITTEN HERE IS ACTUALLY INSIDE BASE.HTML CONTENT SECTION-->
+<div class="container">
+    <div class="columns">
+        <div class="column is-12">
+            <h1 class="title">New Story</h1>
+        </div>
+    </div>
+
+    <div class="columns">
+        <div class="column is-12">
+            <form action="." method="POST">
+                {% csrf_token %}
+                <!-- FOR SECURITY built-in django prevents submissions from other pages-->
+
+                {{ form.as_p }}
+
+                <div class="field">
+                    <div class="control">
+                        <button class="button is-success">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
